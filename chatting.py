@@ -164,7 +164,8 @@ def chatbot_loop():
             'role': 'user',
             'content': chat_history,
             'images': ['screenshot.png']},],
-            options={'temperature': 1})
+            options={'temperature': 1},
+            stream=True)
         emotion = response['message']['content'].split("/", 1)[-1]
         output = response['message']['content'].split("/", 1)[0]
         chat_history += "\n You: " + response['message']['content'].split("\n")[-1] + "\n Audience: "
